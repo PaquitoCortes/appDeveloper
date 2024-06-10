@@ -1,0 +1,32 @@
+<style>
+  p{          
+    display: inline;
+  }  
+</style>
+
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="number" style="padding-bottom: 10px;">
+    <ion-item>
+      <ion-label position="stacked">Number</ion-label>
+      <ion-input [(ngModel)]="number.input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Result</ion-label>
+      <div style="padding-top: 10px;padding-bottom: 10px;">
+        <ion-text style="float:left;" *ngFor="let val of vals ; last as isLast"><p [style.color]="val.color">{{ val.numero }}</p><p *ngIf="!isLast">,&nbsp;</p></ion-text>
+      </div>
+    </ion-item>
+  </div>
+
+  <ion-button expand="block" color="danger" (click)="deleteNumber()">
+    <ion-icon name="trash" slot="start"></ion-icon>
+    Delete
+  </ion-button>
+</ion-content>
